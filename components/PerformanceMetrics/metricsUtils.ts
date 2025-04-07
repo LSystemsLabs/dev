@@ -1,5 +1,5 @@
 /**
- * Calcula el tiempo promedio a partir de una lista de tiempos.
+ * Calcula el promedio de tiempos.
  */
 export function calculateAverage(times: number[]): number {
   if (times.length === 0) return 0;
@@ -8,9 +8,7 @@ export function calculateAverage(times: number[]): number {
 }
 
 /**
- * Calcula el percentil deseado de una lista de tiempos.
- * @param times - Array de tiempos.
- * @param percentile - Percentil a calcular (por ejemplo, 90 para el 90%).
+ * Calcula el percentil deseado (por ejemplo, 90 para el P90).
  */
 export function calculatePercentile(
   times: number[],

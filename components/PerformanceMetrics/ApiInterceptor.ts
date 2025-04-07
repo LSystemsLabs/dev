@@ -16,16 +16,15 @@ export interface MetricsData {
 export const metrics: { [service: string]: MetricsData } = {};
 
 /**
- * Configura un interceptor en Axios.
- * @param serviceName - Nombre del servicio (API) a monitorizar.
- * @param endpointMapping - Mapeo de endpoints: { urlOriginal: nombreMapeado }.
+ * Configura el interceptor en Axios para capturar las métricas.
+ * @param serviceName - Nombre del servicio.
+ * @param endpointMapping - Mapeo de endpoints (ej. { "/api/users": "getUsers" }).
  */
 export function setupInterceptor(
   serviceName: string,
-  endpointMapping: { [key: string]: string }
+  endpointMapping: { [key: string]: string } = {}
 ) {
   axios.interceptors.request.use((config: AxiosRequestConfig) => {
-    // Se agrega un header con el timestamp inicial.
     config.headers = config.headers || {};
     config.headers["request-startTime"] = Date.now();
     return config;
@@ -33,23 +32,22 @@ export function setupInterceptor(
 
   axios.interceptors.response.use(
     (response: AxiosResponse) => {
-      const startTime = response.config.headers
-        ? (response.config.headers["request-startTime"] as number)
-        : Date.now();
+      const startTime =
+        response.config.headers && response.config.headers["request-startTime"]
+          ? Number(response.config.headers["request-startTime"])
+          : Date.now();
       const duration = Date.now() - startTime;
       const originalEndpoint = response.config.url || "unknown";
-      // Si el endpoint no está mapeado, se usa el mismo valor (y podrías agregarlo dinámicamente).
       const mappedEndpoint =
         endpointMapping[originalEndpoint] || originalEndpoint;
+      const statusCode = response.status;
 
-      // Aseguramos que el objeto para el servicio y el endpoint exista.
       if (!metrics[serviceName]) {
         metrics[serviceName] = {};
       }
       if (!metrics[serviceName][mappedEndpoint]) {
         metrics[serviceName][mappedEndpoint] = {};
       }
-      const statusCode = response.status;
       if (!metrics[serviceName][mappedEndpoint][statusCode]) {
         metrics[serviceName][mappedEndpoint][statusCode] = {
           attempts: 0,
@@ -57,24 +55,21 @@ export function setupInterceptor(
           responseTimes: [],
         };
       }
-      // Actualizamos las métricas.
-      metrics[serviceName][mappedEndpoint][statusCode].attempts++;
-      metrics[serviceName][mappedEndpoint][statusCode].totalResponseTime +=
-        duration;
-      metrics[serviceName][mappedEndpoint][statusCode].responseTimes.push(
-        duration
-      );
+      const metric = metrics[serviceName][mappedEndpoint][statusCode];
+      metric.attempts++;
+      metric.totalResponseTime += duration;
+      metric.responseTimes.push(duration);
+
       return response;
     },
     (error) => {
-      // Puedes extender el manejo de errores si deseas capturar métricas de fallos.
       return Promise.reject(error);
     }
   );
 }
 
 /**
- * Función para obtener las métricas capturadas.
+ * Retorna el objeto con las métricas acumuladas.
  */
 export function getMetrics() {
   return metrics;

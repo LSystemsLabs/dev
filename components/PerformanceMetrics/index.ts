@@ -1,1 +1,1 @@
-export { default } from "./PerformanceMetrics";
+export { default } from "./PerformanceDevTool";
