@@ -90,3 +90,93 @@
   border-top: 1px solid #eee;
   padding-top: 15px;
 }
+
+/* src/components/PerformanceDevTool/components/CaptureMode/CaptureMode.css */
+
+/* ... (Estilos anteriores) ... */
+
+.pdt-loading {
+    text-align: center;
+    padding: 20px;
+    color: #6c757d;
+}
+
+/* Ajustes a la fila del endpoint */
+.pdt-endpoint-item {
+    display: grid; /* Cambiar a grid para mejor control de columnas */
+    grid-template-columns: 1fr 2fr auto auto; /* Key | URL | Status | Botón/Indicador */
+    gap: 10px;
+    align-items: center; /* Alinear verticalmente */
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+.pdt-endpoint-key {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdt-endpoint-url {
+    color: #6c757d;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdt-endpoint-status {
+    font-size: 0.9em;
+    padding: 3px 6px;
+    border-radius: 3px;
+    color: white;
+    min-width: 120px; /* Ancho fijo para estado + contador */
+    text-align: center;
+    white-space: nowrap; /* Evitar que se parta */
+}
+
+
+/* Estilos para el botón de ejecutar */
+.pdt-button-run {
+    background-color: #198754; /* Verde */
+    border-color: #198754;
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.9em;
+    justify-self: center; /* Centrar botón en su celda de grid */
+}
+.pdt-button-run:hover:not(:disabled) {
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+/* Estilos para el indicador de completado/error */
+.pdt-endpoint-done-indicator {
+    font-size: 1.1em;
+    justify-self: center; /* Centrar icono en su celda de grid */
+}
+
+/* Colores de estado (ya definidos antes, verificamos que estén bien) */
+.pdt-endpoint-item.status-pending { background-color: #f8f9fa; border-color: #e9ecef; }
+.pdt-endpoint-item.status-pending .pdt-endpoint-status { background-color: #6c757d; } /* Gris */
+
+.pdt-endpoint-item.status-running { background-color: #cfe2ff; border-color: #b6d4fe;}
+.pdt-endpoint-item.status-running .pdt-endpoint-status { background-color: #0d6efd; } /* Azul */
+
+.pdt-endpoint-item.status-completed { background-color: #d1e7dd; border-color: #badbcc;}
+.pdt-endpoint-item.status-completed .pdt-endpoint-status { background-color: #198754; } /* Verde */
+
+.pdt-endpoint-item.status-error { background-color: #f8d7da; border-color: #f5c2c7;}
+.pdt-endpoint-item.status-error .pdt-endpoint-status { background-color: #dc3545; } /* Rojo */
+
+/* Ajuste acciones finales */
+.pdt-capture-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end; /* Botón a la derecha */
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
