@@ -1,24 +1,27 @@
 import React from 'react';
+import './HomeScreen.css';
 
 interface HomeScreenProps {
-  onStartNewSession: () => void;
-  onLoadSession: (file: File) => void;
+  goToSetup: () => void;
+  // loadSession?: () => void; // Para el futuro
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = ({ onStartNewSession, onLoadSession }) => {
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      onLoadSession(e.target.files[0]);
-    }
-  };
-
+const HomeScreen: React.FC<HomeScreenProps> = ({ goToSetup /*, loadSession */ }) => {
   return (
-    <div>
-      <h3>Iniciar o Cargar Sesión</h3>
-      <button onClick={onStartNewSession}>Iniciar Nueva Sesión</button>
-      <div style={{ marginTop: '1rem' }}>
-        <label>Cargar Sesión (JSON): </label>
-        <input type="file" accept=".json" onChange={handleFileChange} />
+    <div className="pdt-home-screen pdt-view"> {/* Clase común para vistas */}
+      <div className="pdt-logo-area">
+           {/* Puedes poner un SVG o icono aquí */}
+           <span className="pdt-logo-placeholder">📊</span>
+           <h1>API Performance DevTool</h1>
+      </div>
+      <p>Intercepta, configura y analiza el rendimiento de las llamadas a tus APIs durante el desarrollo.</p>
+      <div className="pdt-home-actions">
+          <button className="pdt-button pdt-button-primary" onClick={goToSetup}>
+            🚀 Iniciar Nueva Sesión
+          </button>
+          {/* <button className="pdt-button" onClick={loadSession} disabled>
+             📁 Cargar Sesión (Próximamente)
+          </button> */}
       </div>
     </div>
   );
