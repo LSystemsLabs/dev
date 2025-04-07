@@ -1,0 +1,38 @@
+.pdt-report-view h2 {
+    margin-bottom: 5px;
+    font-size: 1.3em;
+    color: #343a40;
+}
+
+.pdt-report-view p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.pdt-report-details {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 4px;
+    max-height: 300px; /* Altura máxima para el pre */
+    overflow: auto; /* Scroll si el JSON es grande */
+}
+
+/* Estilos para la previsualización del JSON */
+.pdt-report-details pre {
+    margin: 0;
+    font-size: 0.9em;
+    white-space: pre-wrap; /* Ajustar líneas largas */
+    word-break: break-all; /* Romper palabras largas */
+}
+
+
+.pdt-report-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between; /* Botones a los extremos */
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}

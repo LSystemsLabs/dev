@@ -1,0 +1,133 @@
+/* Estilos generales para el contenedor de la herramienta */
+.pdt-container {
+    position: fixed; /* Fijar en la pantalla */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 50vh; /* Altura máxima, ajustable */
+    background-color: #f8f9fa; /* Un gris muy claro */
+    border-top: 2px solid #dee2e6; /* Borde superior */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Asegurar que esté por encima de otro contenido */
+    display: flex;
+    flex-direction: column; /* Contenido apilado verticalmente */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: #212529; /* Color de texto oscuro */
+    overflow: hidden; /* Evitar desbordamiento inicial */
+  }
+  
+  /* Área principal donde se renderizan las vistas */
+  .pdt-content {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    overflow-y: auto; /* Scroll vertical si el contenido es largo */
+    padding: 15px;
+  }
+  
+  /* Clase común para las diferentes vistas (HomeScreen, Setup, etc.) */
+  .pdt-view {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre elementos principales de la vista */
+  }
+  
+  /* Estilos comunes para botones */
+  .pdt-button {
+    padding: 8px 15px;
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    color: #495057;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+  }
+  
+  .pdt-button:hover:not(:disabled) {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+  }
+  
+  .pdt-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .pdt-button-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  .pdt-button-primary:hover:not(:disabled) {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .pdt-button-danger {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      color: white;
+  }
+  .pdt-button-danger:hover:not(:disabled) {
+      background-color: #c82333;
+      border-color: #bd2130;
+  }
+  
+  .pdt-button-secondary {
+      background-color: #6c757d;
+      border-color: #6c757d;
+      color: white;
+  }
+  .pdt-button-secondary:hover:not(:disabled) {
+      background-color: #5a6268;
+      border-color: #545b62;
+  }
+  
+  
+  .pdt-button-small {
+    padding: 4px 8px;
+    font-size: 0.9em;
+  }
+  
+  /* Estilo para Inputs */
+  .pdt-input {
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%; /* Ocupa el ancho disponible por defecto */
+    box-sizing: border-box; /* Incluir padding y borde en el ancho/alto */
+  }
+  
+  .pdt-input:focus {
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  
+  /* Botón flotante para volver a Home (ejemplo) */
+  .pdt-home-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 1.2em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  .pdt-home-button:hover {
+      background: #5a6268;
+  }
+  
+  /* Estilos específicos de cada vista irán en sus respectivos archivos CSS */

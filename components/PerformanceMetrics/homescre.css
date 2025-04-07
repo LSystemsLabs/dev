@@ -1,0 +1,33 @@
+.pdt-home-screen {
+    align-items: center; /* Centrar contenido horizontalmente */
+    text-align: center;
+    padding-top: 20px; /* Más espacio arriba */
+  }
+  
+  .pdt-logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+  }
+  
+  .pdt-logo-placeholder {
+      font-size: 2.5em;
+  }
+  
+  .pdt-home-screen h1 {
+      font-size: 1.5em;
+      margin: 0;
+      color: #343a40;
+  }
+  
+  .pdt-home-screen p {
+    max-width: 400px; /* Limitar ancho del párrafo */
+    color: #6c757d; /* Gris más suave */
+    margin-bottom: 25px;
+  }
+  
+  .pdt-home-actions {
+      display: flex;
+      gap: 15px;
+  }
