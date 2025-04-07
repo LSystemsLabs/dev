@@ -3,10 +3,10 @@ export type ViewType = "HOME" | "SETUP" | "CAPTURE" | "REPORT";
 
 // Configuración para un endpoint individual
 export interface EndpointConfig {
-  id: string; // Un ID único para React keys
-  key: string; // Nombre lógico dado por el usuario
-  url: string; // URL real del endpoint
-  requests: number; // Número de peticiones a realizar
+  id: string;
+  key: string; // Nombre lógico
+  urlFragment: string; // FRAGMENTO de URL a buscar (antes era 'url')
+  requests: number; // Número de peticiones (relevante para modo manual, menos para auto)
 }
 
 // Configuración para un servicio (agrupa endpoints)
