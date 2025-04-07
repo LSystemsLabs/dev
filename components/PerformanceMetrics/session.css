@@ -1,94 +1,84 @@
-/* Estilos para la vista de configuración de sesión */
-.pdt-session-setup h2 {
-    margin-bottom: 5px;
-    font-size: 1.3em;
-    color: #343a40;
-}
-.pdt-session-setup p {
-    margin-top: 0;
+/* src/components/PerformanceDevTool/components/SessionSetup/SessionSetup.css */
+
+/* ... (Estilos anteriores sin cambios) ... */
+
+
+/* --- Estilos Modo Rápido --- */
+.pdt-quick-mode {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f8f9fa; /* Fondo ligeramente distinto */
     margin-bottom: 20px;
-    color: #6c757d;
 }
 
-.pdt-services-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Espacio entre bloques de servicio */
-}
-
-.pdt-service-config {
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  padding: 15px;
-  background-color: #fff; /* Fondo blanco para destacar */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.pdt-service-header {
-  display: flex;
-  justify-content: space-between; /* Nombre a la izq, botón a la der */
-  align-items: center;
-  margin-bottom: 15px;
-  gap: 10px;
-}
-
-.pdt-input-service-name {
-    font-weight: bold;
-    flex-grow: 1; /* Ocupa el espacio restante */
-    /* Limitamos un poco el ancho máximo por si acaso */
-    max-width: calc(100% - 50px);
-}
-
-.pdt-endpoints-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Espacio entre filas de endpoints y botón 'añadir' */
-  padding-left: 10px; /* Indentación leve */
-  border-left: 2px solid #f0f0f0; /* Línea visual */
-}
-
-/* Cabecera opcional para la tabla de endpoints */
-.pdt-endpoint-header-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr 0.5fr 0.3fr; /* Ajustar proporciones según necesidad */
-    gap: 10px;
-    font-weight: bold;
-    font-size: 0.9em;
-    color: #6c757d;
-    padding-bottom: 5px;
+.pdt-quick-mode h3 {
+    margin-top: 0;
     margin-bottom: 5px;
-    border-bottom: 1px solid #eee;
-}
-.pdt-endpoint-header-row span:nth-child(3) { text-align: center; } /* Centrar 'Peticiones' */
-
-
-/* Fila para configurar un endpoint */
-.pdt-endpoint-config-row {
-  display: grid; /* Usamos grid para alinear columnas */
-  grid-template-columns: 1fr 2fr 0.5fr 0.3fr; /* Mismas proporciones que la cabecera */
-  gap: 10px; /* Espacio entre inputs y botón */
-  align-items: center; /* Alinear verticalmente */
+    font-size: 1.1em;
 }
 
-.pdt-input-requests {
-    text-align: center; /* Centrar número de peticiones */
-    min-width: 60px; /* Ancho mínimo */
-    flex-grow: 0; /* No crecer */
-    width: auto; /* Ancho automático basado en contenido/min-width */
+.pdt-quick-mode p {
+    font-size: 0.95em;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+.pdt-quick-mode p code {
+    background-color: #e9ecef;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
 }
 
+.pdt-textarea-quick {
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: monospace; /* Mejor para formato de código */
+    font-size: 0.95em;
+}
 
+.pdt-quick-mode-options {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre label, input y botón */
+    flex-wrap: wrap; /* Permitir que pase a la siguiente línea si no cabe */
+}
+.pdt-quick-mode-options label {
+    font-size: 0.95em;
+    white-space: nowrap; /* Evitar que la etiqueta se parta */
+}
+
+/* Hereda estilos de .pdt-input-requests, pero podemos ajustar si es necesario */
+/* .pdt-quick-mode-options .pdt-input-requests { } */
+
+.pdt-error-message {
+    color: #dc3545; /* Rojo error */
+    font-size: 0.9em;
+    margin-top: 10px;
+    margin-bottom: 0; /* Ajustar si es necesario */
+}
+
+/* --- Divisor Visual --- */
+.pdt-divider {
+    border: none;
+    border-top: 1px dashed #ced4da; /* Línea discontinua */
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Mensajes informativos */
+.pdt-no-services-message,
+.pdt-no-endpoints-message {
+    font-style: italic;
+    color: #6c757d;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Ajuste menor al botón de añadir endpoint manual */
 .pdt-button-add-endpoint {
     align-self: flex-start; /* Alinear botón a la izquierda */
-    margin-top: 10px;
+    margin-top: 15px; /* Un poco más de espacio arriba */
     font-size: 0.9em;
-}
-
-
-.pdt-setup-actions {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between; /* Botones a los extremos */
-  border-top: 1px solid #eee;
-  padding-top: 15px;
 }
